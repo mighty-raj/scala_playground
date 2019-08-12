@@ -1,42 +1,34 @@
-import scala.collection.mutable.ListBuffer
+import java.util.concurrent.TimeUnit
+
+import scala.collection.mutable.{ArrayBuffer, Map}
+import scala.io.StdIn.{readInt, readLine}
+
+import scala.io.Source.stdin
 
 object MemorizeMe {
 
   def main(args: Array[String]): Unit = {
 
-    val stdin = scala.io.StdIn
+    var inpLen = readInt()
+    var inp = readLine().split(" ").map(_.toInt)
 
-    val inpLen = stdin.readLine()
-    val inp = stdin.readLine().split(" ").map(_.toInt)
+    val numQueries = readInt()
+    var queryList = new ArrayBuffer[Int]
 
-    val numQueries = stdin.readLine().toInt
-    var queryList = new ListBuffer[Int]
+    var numsMap = Map[Int, Int]()
+    time {for (i <- inp) if (numsMap.contains(i)) numsMap(i) = numsMap(i) + 1 else numsMap += (i -> 1)}
 
-    for (i <- 1 to numQueries) {
-      queryList += stdin.readLine().toInt
-
-    }
-
-    queryList.toList
-
-    for(i <- queryList) {
-      val result = frequencyCountFromMemory(inp, i)
-
-      if (result == 0) println("NOT PRESENT") else println(result)
-    }
+    time{for (i <- 1 to numQueries) queryList += readInt()}
+    time{for(i <- queryList) if (numsMap.contains(i)) println(numsMap(i)) else println("NOT PRESENT")}
 
   }
 
-  def frequencyCountFromMemory(inpArray: Array[Int], qNum: Int): Int = {
-
-    var freqCtr = 0
-    for (i <- inpArray) {
-      if (i == qNum) freqCtr += 1
-    }
-
-    freqCtr
-
+  def time[R](block: => R): R = {
+    val t0 = System.nanoTime()
+    val result = block    // call-by-name
+    val t1 = System.nanoTime()
+    println(TimeUnit.SECONDS.convert((t1 - t0), TimeUnit.NANOSECONDS) + "secs")
+    result
   }
-
 
 }
