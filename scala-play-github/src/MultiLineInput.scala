@@ -1,18 +1,15 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.io.StdIn
+import scala.util.control.Breaks._                  // Importing  package
+
 
 object MultiLineInput {
 
   def main(args: Array[String]) = {
 
-    val x: Int = readInt()
-    println(x)
+    io.Source.stdin.getLines().take(2).map(_.toInt).foreach(println)
 
-    for( i <- 1 to x) {
-      val y = readInt()
-      println(y)
-
-    }
+//    io.Source.stdin.getLines().
 
   }
 

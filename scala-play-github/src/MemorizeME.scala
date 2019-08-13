@@ -13,13 +13,16 @@ object MemorizeMe {
     var inp = readLine().split(" ").map(_.toInt)
 
     val numQueries = readInt()
-    var queryList = new ArrayBuffer[Int]
+    val queryList = Array.fill(numQueries)(readInt())
+//    var queryList = new Array[Int](numQueries)
 
     var numsMap = Map[Int, Int]()
     time {for (i <- inp) if (numsMap.contains(i)) numsMap(i) = numsMap(i) + 1 else numsMap += (i -> 1)}
 
-    time{for (i <- 1 to numQueries) queryList += readInt()}
-    time{for(i <- queryList) if (numsMap.contains(i)) println(numsMap(i)) else println("NOT PRESENT")}
+//    val queryList = Array.fill(numQueries)(readInt())
+//    val queryList = io.Source.stdin.getLines().take(numQueries).map(_.toInt)
+//    time {for (i <- 1 to numQueries) queryList(i-1) = readInt()}
+    time {for(i <- queryList) if (numsMap.contains(i)) println(numsMap(i)) else println("NOT PRESENT")}
 
   }
 

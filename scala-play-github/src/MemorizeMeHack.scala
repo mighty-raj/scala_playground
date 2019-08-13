@@ -1,6 +1,9 @@
 import java.util.concurrent.TimeUnit
-import scala.collection.mutable.ArrayBuffer
+
+import scala.collection.mutable.{ArrayBuffer, Map}
 import scala.io.StdIn.{readInt, readLine}
+
+import scala.io.Source.stdin
 
 object MemorizeMeHack {
 
@@ -10,16 +13,14 @@ object MemorizeMeHack {
     var inp = readLine().split(" ").map(_.toInt)
 
     val numQueries = readInt()
-    var queryList = new ArrayBuffer[Int]
+    val queryList = Array.fill(numQueries)(readInt())
 
-    var numsMap = scala.collection.mutable.Map[Int, Int]()
+    var numsMap = Map[Int, Int]()
     for (i <- inp) if (numsMap.contains(i)) numsMap(i) = numsMap(i) + 1 else numsMap += (i -> 1)
 
-    for (x <- io.Source.stdin.getLines) {
-      val i = x.toInt
-      if (numsMap.contains(i)) println(numsMap(i)) else println("NOT PRESENT")
-    }
+    for(i <- queryList) if (numsMap.contains(i)) println(numsMap(i)) else println("NOT PRESENT")
 
   }
+
 
 }
