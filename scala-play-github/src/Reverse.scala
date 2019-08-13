@@ -12,9 +12,7 @@ object Reverse {
 
   // Complete the reverseArray function below.
   def reverseArray(a: Array[Int]): Array[Int] = {
-
     a.reverseIterator.toArray
-
   }
 
   def main(args: Array[String]) {
