@@ -20,9 +20,7 @@ import scala.sys._
 import scala.util.matching._
 import scala.reflect._
 
-object Solution {
-
-
+object VMPricing {
 
   // Complete the interpolate function below.
   def interpolate(n: Int, quantity: Array[Int], price: Array[Float], qtyCount: Int): Float = {

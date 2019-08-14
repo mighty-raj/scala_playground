@@ -8,3 +8,5 @@ if (maptest.contains(1)) println(maptest(1)) else println("not found")
 
 var inp = new ArrayBuffer[Int]()
 inp.size
+
+var narrays = new Array[ArrayBuffer[Int]](3)

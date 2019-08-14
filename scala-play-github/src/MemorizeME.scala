@@ -5,7 +5,7 @@ import scala.io.StdIn.{readInt, readLine}
 
 import scala.io.Source.stdin
 
-object MemorizeMe {
+object MemorizeME {
 
   def main(args: Array[String]): Unit = {
 
