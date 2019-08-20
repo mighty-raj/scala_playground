@@ -14,20 +14,27 @@ object SockMerchant {
     val n = stdin.readLine.trim.toInt
     val inpArray = stdin.readLine.split(" ").map(_.trim.toInt)
 
-    val pairs = sockPairs(n, inpArray )
+    val pairs = sockMerchant(n, inpArray )
 
     println(s"Num of socks pairs: $pairs")
 
 
   }
 
-  def sockPairs(len: Int, inp: Array[Int]): Int = {
 
+  def sockMerchant(n: Int, ar: Array[Int]): Int = {
     var sockMap: mutable.HashMap[Int, Int] = mutable.HashMap.empty[Int, Int]
+    var pairCount = 0
 
-//    inp.foreach(_)
+    for(i <- ar)
+      if (sockMap.contains(i)) {
+        sockMap(i) += 1
 
-    0
+        if (sockMap(i) % 2 == 0) pairCount += 1
+      }
+      else sockMap += (i -> 1)
+
+    pairCount
 
   }
 
