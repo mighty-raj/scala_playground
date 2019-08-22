@@ -21,7 +21,6 @@ object SockMerchant {
 
   }
 
-
   def sockMerchant(n: Int, ar: Array[Int]): Int = {
     var sockMap: mutable.HashMap[Int, Int] = mutable.HashMap.empty[Int, Int]
     var pairCount = 0

@@ -28,16 +28,16 @@ object LeftRotation {
 
   }
 
-  def rotate_fast(oldArr: Array[Int], noOfRotations: Int): Array[Int] = {
+  def rotate_fast(a: Array[Int], d: Int): Array[Int] = {
 
-    val len = oldArr.length
+    val len = a.length
 
     var newArr = new Array[Int](len)
 
     for( i <- (len - 1) to 0 by -1){
-      val diff = i - noOfRotations
+      val diff = i - d
 
-      if (diff >= 0) newArr(diff) = oldArr(i) else newArr(diff + len) = oldArr(i)
+      if (diff >= 0) newArr(diff) = a(i) else newArr(diff + len) = a(i)
 
     }
 
