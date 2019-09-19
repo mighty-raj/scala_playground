@@ -12,8 +12,6 @@ import java.util.stream._
 import scala.collection.immutable._
 import scala.collection.mutable._
 import scala.collection.concurrent._
-import scala.collection.parallel.immutable._
-import scala.collection.parallel.mutable._
 import scala.concurrent._
 import scala.io._
 import scala.math._
@@ -28,14 +26,14 @@ object VMPricing {
   // Complete the interpolate function below.
   def interpolate(n: Int, quantity: Array[Int], price: Array[Float], qtyCount: Int): Float = {
 
-    var instancePriceMap = Map[Int, Float]()
+    var instancePriceMap = collection.mutable.Map[Int, Float]()
     for(i <- 0 until qtyCount) {
       instancePriceMap += (quantity(i) -> price(i))
     }
 
     if (instancePriceMap.contains(n)) instancePriceMap(n) else {
 
-      val sortedMap = TreeMap(instancePriceMap.toSeq:_*)
+      val sortedMap = collection.immutable.TreeMap(instancePriceMap.toSeq:_*)
 
       val sortedQtyList = sortedMap.keysIterator.toList
       val sortedPrcList = sortedMap.valuesIterator.toList

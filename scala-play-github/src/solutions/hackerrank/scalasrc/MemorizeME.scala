@@ -9,11 +9,8 @@ import java.util.concurrent._
 import java.util.function._
 import java.util.regex._
 import java.util.stream._
-import scala.collection.immutable._
 import scala.collection.mutable._
 import scala.collection.concurrent._
-import scala.collection.parallel.immutable._
-import scala.collection.parallel.mutable._
 import scala.concurrent._
 import scala.io._
 import scala.math._
@@ -35,7 +32,7 @@ object MemorizeME {
     val queryList = Array.fill(numQueries)(readInt())
 //    var queryList = new Array[Int](numQueries)
 
-    var numsMap = Map[Int, Int]()
+    var numsMap = collection.mutable.Map[Int, Int]()
     time {for (i <- inp) if (numsMap.contains(i)) numsMap(i) = numsMap(i) + 1 else numsMap += (i -> 1)}
 
 //    val queryList = Array.fill(numQueries)(readInt())

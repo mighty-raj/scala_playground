@@ -9,11 +9,8 @@ import java.util.concurrent._
 import java.util.function._
 import java.util.regex._
 import java.util.stream._
-import scala.collection.immutable._
 import scala.collection.mutable._
 import scala.collection.concurrent._
-import scala.collection.parallel.immutable._
-import scala.collection.parallel.mutable._
 import scala.concurrent._
 import scala.io._
 import scala.math._
@@ -32,7 +29,7 @@ object MinimumDistances {
   def minimumDistances(a: Array[Int]): Int = {
 
     val arrSize = a.length
-    var localMap = Map[Int, ArrayBuffer[Int]]()
+    var localMap = collection.mutable.Map[Int, ArrayBuffer[Int]]()
 
     var minDist = Int.MaxValue
 
