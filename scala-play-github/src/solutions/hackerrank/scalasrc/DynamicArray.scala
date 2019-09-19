@@ -1,4 +1,4 @@
-package solutions.hackerrank
+package solutions.hackerrank.scalasrc
 
 import java.io._
 import java.math._
@@ -20,6 +20,8 @@ import scala.math._
 import scala.sys._
 import scala.util.matching._
 import scala.reflect._
+
+import scala.util.control.Breaks._
 
 object DynamicArray {
 

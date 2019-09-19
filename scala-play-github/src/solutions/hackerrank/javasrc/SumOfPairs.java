@@ -1,4 +1,4 @@
-package solutions.hackerrank;
+package solutions.hackerrank.javasrc;
 
 import java.util.Arrays;
 

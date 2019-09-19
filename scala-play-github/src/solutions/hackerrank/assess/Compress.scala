@@ -1,4 +1,4 @@
-package solutions.hackerrank
+package solutions.hackerrank.assess
 
 import java.io._
 import java.math._
@@ -22,7 +22,6 @@ import scala.util.matching._
 import scala.reflect._
 
 import scala.util.control.Breaks._
-
 
 /**
   * compress word: HackerRank problem
