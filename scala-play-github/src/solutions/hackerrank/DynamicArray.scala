@@ -1,3 +1,5 @@
+package solutions.hackerrank
+
 import java.io._
 import java.math._
 import java.security._

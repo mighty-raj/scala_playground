@@ -1,5 +1,3 @@
-
-
 object SumPairs {
 
   def main(args : Array[String]): Unit = {

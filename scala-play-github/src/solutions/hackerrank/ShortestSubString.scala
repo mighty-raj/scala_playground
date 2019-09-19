@@ -1,3 +1,5 @@
+package solutions.hackerrank
+
 import java.io._
 import java.math._
 import java.security._
@@ -19,58 +21,52 @@ import scala.sys._
 import scala.util.matching._
 import scala.reflect._
 
-import scala.util.control.Breaks._
 
 
-
-object Compress {
+object ShortestSubString {
 
   /*
-   * Complete the 'compressWord' function below.
+   * Complete the 'shortestSubstring' function below.
    *
-   * The function is expected to return a STRING.
-   * The function accepts following parameters:
-   *  1. STRING word
-   *  2. INTEGER K
+   * The function is expected to return an INTEGER.
+   * The function accepts STRING s as parameter.
    */
 
-  def compressWord(word: String, K: Int): String = {
+  def shortestSubstring(s: String): Int = {
     // Write your code here
 
-//    val regx = "(c)\\1{3,}"
-//    val regx = "(.)\\1+"
-    val regx = "(.)\\1{" + (K-1) + ",}"
+    val inpStrLen = s.length
+    val inpSet = s.toSet
+    val size = inpSet.size
 
-    var curWord = word
-    var prevWord = word
+    var best = 0
 
-    breakable {
+    for(i <- 0 until (inpStrLen-size)){
 
-      while(true){
-        curWord = prevWord.replaceAll(regx, "")
+      val substr = s.substring(i, i+size)
+      val subStrSet = substr.toSet
 
-        if(curWord == prevWord) break()
-        prevWord = curWord
+      val intersectSet = inpSet.intersect(subStrSet)
 
+      if(intersectSet.size == size){
+        if (best < substr.length) best = substr.length
       }
 
     }
 
-    curWord
+    best
 
   }
 
 }
 
-object TestCompress {
+object TestSubString {
   def main(args: Array[String]) {
     val printWriter = new PrintWriter(System.out)
 
-    val word = StdIn.readLine
+    val s = StdIn.readLine
 
-    val K = StdIn.readLine.trim.toInt
-
-    val result = Compress.compressWord(word, K)
+    val result = ShortestSubString.shortestSubstring(s)
 
     printWriter.println(result)
 

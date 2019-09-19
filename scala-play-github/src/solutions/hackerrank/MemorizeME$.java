@@ -1,10 +1,3 @@
-import java.util.concurrent.TimeUnit
-
-import scala.collection.mutable.{ArrayBuffer, Map}
-import scala.io.StdIn.{readInt, readLine}
-
-import scala.io.Source.stdin
-
 object MemorizeME {
 
   def main(args: Array[String]): Unit = {

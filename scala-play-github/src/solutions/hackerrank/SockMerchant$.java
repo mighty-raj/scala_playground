@@ -1,9 +1,3 @@
-import java.io._
-
-import scala.collection.mutable
-import util._
-
-
 object SockMerchant {
 
   def main(args: Array[String]): Unit = {

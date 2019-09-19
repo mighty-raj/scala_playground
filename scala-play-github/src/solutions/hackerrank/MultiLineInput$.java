@@ -1,8 +1,3 @@
-import scala.collection.mutable.ArrayBuffer
-import scala.io.StdIn
-import scala.util.control.Breaks._                  // Importing  package
-
-
 object MultiLineInput {
 
   def main(args: Array[String]) = {

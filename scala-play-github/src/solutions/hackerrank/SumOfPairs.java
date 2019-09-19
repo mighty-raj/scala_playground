@@ -1,3 +1,5 @@
+package solutions.hackerrank;
+
 import java.util.Arrays;
 
 /**
