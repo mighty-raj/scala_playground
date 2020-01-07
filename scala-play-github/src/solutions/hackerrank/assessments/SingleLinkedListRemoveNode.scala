@@ -1,4 +1,4 @@
-package solutions.hackerrank.assess
+package solutions.hackerrank.assessments
 
 import java.io._
 import java.math._
@@ -64,6 +64,7 @@ object SinglyLinkedListPrintHelper {
 
 
 
+/*
 object Result {
 
   /*
@@ -92,20 +93,29 @@ object Result {
     var prev: SinglyLinkedListNode = null
 
     // when head itself is greater than input integer
-    if (temp != null && temp.data > x) {
-      println("entered node skip")
+    if (head != null && head.data > x) {
       head = temp.next
 
-      // Unlink the node
-      prev = temp;
     }
 
-    // As long data in node is less than or equal to input integer
-    while (temp != null && temp.data <= x) {
+    prev = head
+    temp = head.next
 
-      println("entered loop again ... ")
-      prev = temp
-      temp = temp.next
+    // As long data in node is less than or equal to input integer
+    while (temp != null) {
+
+      if ( temp.data > x) {
+        prev.next = temp.next
+        temp = prev
+      }
+      else
+        temp = temp.next
+
+
+//      if (temp.data > x){
+//        prev.next = temp.next
+//        temp = prev
+//      }
 
     }
 
@@ -114,26 +124,27 @@ object Result {
 
 }
 
-object Solution {
-  def main(args: Array[String]) {
-    val printWriter = new PrintWriter(System.out)
-
-    val listHead = new SinglyLinkedList()
-
-    val listHeadCount = StdIn.readLine.trim.toInt
-
-    for (_ <- 0 until listHeadCount) {
-      val listHeadItem = StdIn.readLine.trim.toInt
-      listHead.insertNode(listHeadItem)
-    }
-
-    val x = StdIn.readLine.trim.toInt
-
-    val result = Result.removeNodes(listHead.head, x)
-
-    SinglyLinkedListPrintHelper.printList(result, "\n", printWriter)
-    printWriter.println()
-
-    printWriter.close()
-  }
-}
+//object Solution {
+//  def main(args: Array[String]) {
+//    val printWriter = new PrintWriter(System.out)
+//
+//    val listHead = new SinglyLinkedList()
+//
+//    val listHeadCount = StdIn.readLine.trim.toInt
+//
+//    for (_ <- 0 until listHeadCount) {
+//      val listHeadItem = StdIn.readLine.trim.toInt
+//      listHead.insertNode(listHeadItem)
+//    }
+//
+//    val x = StdIn.readLine.trim.toInt
+//
+//    val result = Result.removeNodes(listHead.head, x)
+//
+//    SinglyLinkedListPrintHelper.printList(result, "\n", printWriter)
+//    printWriter.println()
+//
+//    printWriter.close()
+//  }
+//}
+*/

@@ -1,4 +1,4 @@
-package solutions.hackerrank.assess
+package solutions.hackerrank.assessments
 
 import java.io._
 import java.math._
